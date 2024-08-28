@@ -1,9 +1,10 @@
 
 
-from data import get_recordings
+from data import record_all
+
 
 def record():
-    pass
+    record_all()
 
 
 if __name__ == "__main__":

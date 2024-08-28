@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="334bec4d-faa5-4a49-aa70-5ca878c01c95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__record__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__record__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/eeg.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/eeg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/record.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/record.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/sound.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/sound.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/visual.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/visual.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

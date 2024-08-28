@@ -1,43 +1,26 @@
 
-import pyaudio
-import wave
+
+import threading
+
+from .sound import record_sound
+from .eeg import record_eeg
+from .visual import record_visual
 
 
-def record_sound(filename="output.wave",
-                 chunk=1024,
-                 sample_format=pyaudio.paInt16,
-                 channels=2,
-                 fs=44100,
-                 ):
-    p = pyaudio.PyAudio()
+def record_all():
+    re = threading.Thread(record_eeg)
+    rs = threading.Thread(record_sound)
+    rv = threading.Thread(record_visual)
 
-    stream = p.open(format=sample_format,
-                    channels=channels,
-                    rate=fs,
-                    frames_per_buffer=chunk,
-                    input=True)
+    re.start()
+    rs.start()
+    rv.start()
 
-    frames = []  # Initialize array to store frames
-
-    # Store data in chunks for 3 seconds
-    while True:
-        data = stream.read(chunk)
-        frames.append(data)
-
-        if condition:
-            stream.stop_stream()
-            stream.close()
-            p.terminate()
-            break
+    re.join()
+    rs.join()
+    rv.join()
 
 
-    print('Finished recording')
-
-    # Save the recorded data as a WAV file
-    wf = wave.open(filename, 'wb')
-    wf.setnchannels(channels)
-    wf.setsampwidth(p.get_sample_size(sample_format))
-    wf.setframerate(fs)
-    wf.writeframes(b''.join(frames))
-    wf.close()
+if __name__ == "__main__":
+    record_all()
 

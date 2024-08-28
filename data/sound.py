@@ -31,9 +31,6 @@ def record_sound(filename="output.wave",
             p.terminate()
             break
 
-
-    print('Finished recording')
-
     # Save the recorded data as a WAV file
     wf = wave.open(filename, 'wb')
     wf.setnchannels(channels)
@@ -42,3 +39,4 @@ def record_sound(filename="output.wave",
     wf.writeframes(b''.join(frames))
     wf.close()
 
+    print('Finished sound recording')
