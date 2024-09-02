@@ -1,6 +1,7 @@
 
 
 import threading
+import datetime
 
 from .sound import record_sound
 from .eeg import record_eeg
@@ -8,9 +9,11 @@ from .visual import record_visual
 
 
 def record_all():
-    re = threading.Thread(record_eeg)
-    rs = threading.Thread(record_sound)
-    rv = threading.Thread(record_visual)
+    filename = datetime.datetime.now().strftime("%m/%d/%Y,%H:%M:%S")
+
+    re = threading.Thread(record_eeg, filename)
+    rs = threading.Thread(record_sound, filename)
+    rv = threading.Thread(record_visual, filename)
 
     re.start()
     rs.start()
