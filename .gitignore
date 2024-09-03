@@ -1,2 +1,6 @@
 .venv
 .idea
+recordings/eegs/*
+recordings/eyes/*
+recordings/sounds/*
+recordings/visuals/*
