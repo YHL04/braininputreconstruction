@@ -2,14 +2,17 @@
 import keyboard
 import pyaudio
 import wave
+import time
 
 
-def record_sound(filename="output.wave",
+def record_sound(filename,
+                 timing,
                  chunk=1024,
                  sample_format=pyaudio.paInt16,
                  channels=2,
                  fs=44100,
                  ):
+    start = time.time()
     p = pyaudio.PyAudio()
 
     stream = p.open(format=sample_format,
@@ -32,11 +35,12 @@ def record_sound(filename="output.wave",
             break
 
     # Save the recorded data as a WAV file
-    wf = wave.open(filename, 'wb')
+    wf = wave.open("recordings/sounds/" + filename + ".wave", 'wb')
     wf.setnchannels(channels)
     wf.setsampwidth(p.get_sample_size(sample_format))
     wf.setframerate(fs)
     wf.writeframes(b''.join(frames))
     wf.close()
 
-    print('Finished sound recording')
+    timing[0] = time.time() - start
+

@@ -2,9 +2,12 @@ import cv2
 import mediapipe as mp
 import pyautogui
 import numpy as np
+import time
+import keyboard
 
 
-def record_eye(filename):
+def record_eye(filename, timing):
+    start = time.time()
     cam = cv2.VideoCapture(0)
     face_mesh = mp.solutions.face_mesh.FaceMesh(refine_landmarks=True)
     screen_w, screen_h = pyautogui.size()
@@ -40,14 +43,14 @@ def record_eye(filename):
             #     pyautogui.click()
             #     pyautogui.sleep(1)
         cv2.imshow('Eye Controlled Mouse', frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if keyboard.is_pressed("c"):
             coors = np.array(coors)
-            np.save(filename + ".npy", coors)
+            np.save("recordings/eyes/" + filename + ".npy", coors)
             break
 
-    return coors
+    timing[0] = time.time() - start
 
 
 if __name__ == "__main__":
-    record_eye()
+    record_eye("testing")
 
